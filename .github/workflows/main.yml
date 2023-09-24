@@ -20,7 +20,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Test
-      run:|
+      run: |
       ceedling clean
       ceedling clobber
       ceedling test:all
