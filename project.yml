@@ -25,6 +25,8 @@
 #  :use_assembly: FALSE
 
 :environment:
+  - :VACCEL_BACKENDS: ./reqs/lib/libvaccel-noop.so
+  # - :valgrind: --leak-check=full --log-file=valgrind-out.txt
 
 :extension:
   :executable: .out
@@ -36,6 +38,7 @@
     - +:test/**
     - -:test/support
   :source:
+    - src/**
   :support:
     - test/support
   :libraries: []
@@ -81,6 +84,21 @@
 # As [:tools] is blank, gcc will be used (so long as it's in your system path)
 # See documentation to configure a given toolchain for use
 
+# :tools:
+#   :pre_test_fixture_execute:
+#     :executable: valgrind
+#     :arguments:
+#       - --track-origins=yes
+#       - --leak-check=full
+#       - --show-leak-kinds=all
+#       - --errors-for-leak-kinds=all
+#       - --error-exitcode=10
+#       - ${1}
+# :plugins:
+#   :enabled:
+#     - command_hooks
+
+
 # LIBRARIES
 # These libraries are automatically injected into the build process. Those specified as
 # common will be used in all types of builds. Otherwise, libraries can be injected in just
@@ -89,7 +107,7 @@
   :placement: :end
   :flag: "-l${1}"
   :path_flag: "-L ${1}"
-  :system: []    # for example, you might list 'm' to grab the math library
+  :system: []
   :test: 
     - vaccel
   :release: []

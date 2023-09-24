@@ -3,9 +3,6 @@
 #include "session.h"
 
 
-
-
-
 static int fini(void) 
 {
     return VACCEL_OK;
