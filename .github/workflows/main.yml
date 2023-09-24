@@ -26,15 +26,13 @@ jobs:
       working-directory: ./test/
       run: |
         echo "Current Working Directory: $(pwd)"
-        ceedling
-        ceedling clean
 
-    - name: Clobber Ceedling
-      working-directory: ./test/
-      run: ceedling clobber
+    # - name: Clobber Ceedling
+    #   working-directory: ./test/
+    #   run: ceedling clobber
 
     - name: Run Ceedling tests
       working-directory: ./test/
-      run: ceedling test:all
+      run: ceedling
 
 
