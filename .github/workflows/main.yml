@@ -26,6 +26,7 @@ jobs:
       working-directory: ./test/
       run: |
         echo "Current Working Directory: $(pwd)"
+        ceedling
         ceedling clean
 
     - name: Clobber Ceedling
