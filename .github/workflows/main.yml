@@ -1,33 +1,25 @@
 name: Run Ceedling Tests
-
-on:
-  push:
-    branches:
-      - main
-
+on: [push, pull_request]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0.5' 
+        bundler-cache: true 
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.0.5
+    - name: Install Ceedling
+      run: gem install ceedling
 
-      - name: Install Ceedling
-        run: gem install ceedling
+    - name: Clean Ceedling
+      run: ceedling clean
 
-      - name: Clean Ceedling
-        run: ceedling clean
+    - name: Clobber Ceedling
+      run: ceedling clobber
 
-      - name: Clobber Ceedling
-        run: ceedling clobber
-
-      - name: Echo Current Working Directory
-        run: |
-          echo "Current Working Directory: $(pwd)"
-          ceedling test:all
+    - name: Echo Current Working Directory
+      run: |
+        echo "Current Working Directory: $(pwd)"
+        ceedling test:all
