@@ -38,7 +38,7 @@
     - -:test/support
   :source:
     - src/**
-    # - third-party/**
+    - third-party/**
   :support:
     - test/support
   :libraries:
