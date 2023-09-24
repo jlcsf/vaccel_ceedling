@@ -21,7 +21,7 @@ jobs:
 
     -name: Set LD_LIBRARY_PATH
       run: |
-        LD_LIBRARY_PATH=./src
+        echo "LD_LIBRARY_PATH=./src" >> $GITHUB_ENV
 
 
     # Runs a set of commands using the runners shell
