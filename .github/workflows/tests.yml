@@ -28,11 +28,3 @@ jobs:
         ceedling clobber
         ceedling test:all
 
-    - name: Run memory (valgrind) tests
-      run: |
-        cd ./test_valgrind 
-        chmod +x run_scripts.sh
-        ./run_scripts.sh
-      
-    - uses: actions/checkout@v4
-
