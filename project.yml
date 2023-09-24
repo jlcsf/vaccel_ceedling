@@ -109,8 +109,10 @@
   :flag: "-l${1}"
   :path_flag: "-L ${1}"
   :system: []
-  :test: []
-  :release: []
+  :test:
+    - vaccel
+  :release: 
+    - vaccel
 
 :plugins:
   :load_paths:
