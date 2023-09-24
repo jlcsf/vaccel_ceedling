@@ -21,7 +21,6 @@ jobs:
     - name: Install Ceedling
       run: gem install ceedling
 
-    - name: Build and Run Ceedling Tests
-      run: |
-        cd ../
-        ceedling test:all
+    - name: Run Tests
+      working-directory:  ../
+      run:  ceedling test:all
