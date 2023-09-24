@@ -33,4 +33,6 @@ jobs:
         cd ./test_valgrind 
         chmod +x run_scripts.sh
         ./run_scripts.sh
+      
+    - uses: actions/checkout@v4
 
