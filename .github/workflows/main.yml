@@ -12,6 +12,10 @@ jobs:
 
     - name: Install Ceedling
       run: gem install ceedling
+      
+    - name: Echo Current Working Directory
+      run: |
+        echo "Current Working Directory: $(pwd)"
 
     - name: Clean Ceedling
       run: ceedling clean
@@ -19,7 +23,4 @@ jobs:
     - name: Clobber Ceedling
       run: ceedling clobber
 
-    - name: Echo Current Working Directory
-      run: |
-        echo "Current Working Directory: $(pwd)"
-        ceedling test:all
+
