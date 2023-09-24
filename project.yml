@@ -108,7 +108,8 @@
   :flag: "-l${1}"
   :path_flag: "-L ${1}"
   :system: []
-  :test: []
+  :test: 
+    - vaccel
   :release: []
 
 :plugins:
