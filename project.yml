@@ -32,8 +32,8 @@
   :executable: .out
 
 :paths:
-  :include:
-    - +:reqs/include/**
+  :include: []
+    # - +:reqs/include/**
   :test:
     - +:test/**
     - -:test/support
