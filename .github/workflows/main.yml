@@ -18,11 +18,8 @@ jobs:
         with:
           ruby-version: 3.0.5
 
-      - name: Install Bundler
-        run: gem install bundler
-
       - name: Install Ceedling
-        run: bundle install
+        run: gem install ceedling
 
       - name: Clean Ceedling
         run: ceedling clean
