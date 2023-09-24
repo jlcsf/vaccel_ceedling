@@ -1,4 +1,4 @@
-name: Run Ceedling Tests
+name: Tests
 on: [push, pull_request]
 
 
@@ -26,4 +26,11 @@ jobs:
       run: |
         ceedling clean
         ceedling clobber
-        ceedling verbosity[4] test:all
+        ceedling test:all
+
+    - name: Run memory (valgrind) tests
+      run: |
+      cd ./test_valgrind
+      chmod +x run_scripts.sh
+      ./run_scripts.sh
+
