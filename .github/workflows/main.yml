@@ -13,20 +13,25 @@ jobs:
     - name: Install Ceedling
       run: gem install ceedling
     
-    - name: List workspace contents
-      run: |
-        ls -R $GITHUB_WORKSPACE
-        find $GITHUB_WORKSPACE -type f
+    # - name: List workspace contents
+    #   run: |
+    #     ls -R $GITHUB_WORKSPACE
+    #     find $GITHUB_WORKSPACE -type f
       
-    - name: Echo Current Working Directory
-      run: |
-        echo "Current Working Directory: $(pwd)"
+    # - name: Echo Current Working Directory
+    #   run: |
+    #     echo "Current Working Directory: $(pwd)"
 
     - name: Clean Ceedling
-      working-directory: ../test/
+      working-directory: ./test/
       run: ceedling clean
 
     - name: Clobber Ceedling
+      working-directory: ./test/
       run: ceedling clobber
+
+    - name: Run Ceedling tests
+      working-directory: ./test/
+      run: ceedling test:all
 
 
