@@ -21,6 +21,16 @@ jobs:
     - name: Install Ceedling
       run: gem install ceedling
 
-    - name: Run Tests
+    - name: Run Ceedling Clean
       working-directory:  ../
-      run:  ceedling test:all
+      run:  ceedling clean
+
+    - name: Run Ceedling Clobber
+      run : |
+        echo "Current Working Directory: $(pwd)"
+        ceedling clobber
+        
+    - name: Run Ceedling tests
+      run : |
+        ceedling test
+    
