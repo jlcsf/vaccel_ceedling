@@ -12,7 +12,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0'
+        ruby-version: '3.0.5'
 
     # Install ceedling
     - name: Install Ceedling
@@ -20,4 +20,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Test
-      run: ceedling test:all
+      run:|
+      ceedling clean
+      ceedling clobber
+      ceedling test:all

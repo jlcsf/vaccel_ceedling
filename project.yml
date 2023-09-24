@@ -32,14 +32,14 @@
   :executable: .out
 
 :paths:
-  :include: []
+  :include:
     # - +:reqs/include/**
+    - reqs/lib/**
   :test:
     - +:test/**
     - -:test/support
   :source:
     - src/**
-    - third-party/**
   :support:
     - test/support
   :libraries: []
