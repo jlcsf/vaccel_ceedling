@@ -33,7 +33,7 @@
 
 :paths:
   :include:
-    - reqs/include/**
+    - +:reqs/include/**
   :test:
     - +:test/**
     - -:test/support
