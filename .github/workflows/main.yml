@@ -1,41 +1,23 @@
 name: Run Ceedling Tests
 on: [push, pull_request]
+
+
 jobs:
-  test:
+  unit-test:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
+    - uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0.5' 
-        bundler-cache: true 
+        ruby-version: '3.0'
 
-    - name: Ceedling run tests
-      run: |
-        gem install ceedling
-        cd test
-        ceedling test:all
-    
-    # - name: List workspace contents
-    #   run: |
-    #     ls -R $GITHUB_WORKSPACE
-    #     find $GITHUB_WORKSPACE -type f
-      
-    # - name: Echo Current Working Directory
-    #   run: |
-    #     echo "Current Working Directory: $(pwd)"
+    # Install ceedling
+    - name: Install Ceedling
+      run: gem install ceedling
 
-    # - name: Clean Ceedling
-    #   working-directory: ./test/
-    #   run: |
-    #     echo "Current Working Directory: $(pwd)"
-
-    # # - name: Clobber Ceedling
-    # #   working-directory: ./test/
-    # #   run: ceedling clobber
-
-    # - name: Run Ceedling tests
-    #   working-directory: ./test/
-    #   run: ceedling
-
-
+    # Runs a set of commands using the runners shell
+    - name: Test
+      run: ceedling test:all
