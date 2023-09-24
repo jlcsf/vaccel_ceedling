@@ -41,8 +41,8 @@
     # - third-party/**
   :support:
     - test/support
-  :libraries: []
-    # - reqs/lib/
+  :libraries:
+    - reqs/lib/
 :defines:
   # in order to add common defines:
   #  1) remove the trailing [] from the :common: section
