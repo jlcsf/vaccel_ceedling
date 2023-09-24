@@ -30,7 +30,7 @@ jobs:
 
     - name: Run memory (valgrind) tests
       run: |
-      cd ./test_valgrind
-      chmod +x run_scripts.sh
-      ./run_scripts.sh
+        cd ./test_valgrind 
+        chmod +x run_scripts.sh
+        ./run_scripts.sh
 
