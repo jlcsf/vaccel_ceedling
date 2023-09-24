@@ -32,9 +32,7 @@
   :executable: .out
 
 :paths:
-  :include:
-    # - +:reqs/include/**
-    - reqs/lib/**
+  :include: []
   :test:
     - +:test/**
     - -:test/support
@@ -42,7 +40,8 @@
     - src/**
   :support:
     - test/support
-  :libraries: []
+  :libraries:
+    - reqs/lib/**
 
 :defines:
   # in order to add common defines:
@@ -109,8 +108,7 @@
   :flag: "-l${1}"
   :path_flag: "-L ${1}"
   :system: []
-  :test: 
-    - vaccel
+  :test: []
   :release: []
 
 :plugins:
