@@ -3,7 +3,7 @@ name: Run Ceedling Tests
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
@@ -18,8 +18,11 @@ jobs:
         with:
           ruby-version: 3.0.5
 
+      - name: Install Bundler
+        run: gem install bundler
+
       - name: Install Ceedling
-        run: gem install ceedling
+        run: bundle install
 
       - name: Clean Ceedling
         run: ceedling clean
