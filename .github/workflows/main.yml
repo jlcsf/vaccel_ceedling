@@ -14,7 +14,6 @@ jobs:
       with:
         ruby-version: '3.0.5'
 
-    # Install ceedling
     - name: Install Ceedling
       run: gem install ceedling
 
@@ -23,10 +22,8 @@ jobs:
       run: |
         echo "LD_LIBRARY_PATH=./src" >> $GITHUB_ENV
 
-
-    # Runs a set of commands using the runners shell
     - name: Test
       run: |
         ceedling clean
         ceedling clobber
-        ceedling test:all
+        ceedling verbosity[4] test:all
