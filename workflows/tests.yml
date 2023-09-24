@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - jlcsf-patch-1
 
 jobs:
   build:
@@ -13,8 +12,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        ref: jlcsf-patch-1
 
     - name: Set Up Ruby and Ceedling
       uses: ruby/setup-ruby@v1
@@ -26,4 +23,5 @@ jobs:
 
     - name: Build and Run Ceedling Tests
       run: |
+        cd ../
         ceedling test:all
