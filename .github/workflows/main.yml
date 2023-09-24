@@ -10,8 +10,11 @@ jobs:
         ruby-version: '3.0.5' 
         bundler-cache: true 
 
-    - name: Install Ceedling
-      run: gem install ceedling
+    - name: Ceedling run tests
+      run: |
+        gem install ceedling
+        cd test
+        ceedling test:all
     
     # - name: List workspace contents
     #   run: |
@@ -22,17 +25,17 @@ jobs:
     #   run: |
     #     echo "Current Working Directory: $(pwd)"
 
-    - name: Clean Ceedling
-      working-directory: ./test/
-      run: |
-        echo "Current Working Directory: $(pwd)"
-
-    # - name: Clobber Ceedling
+    # - name: Clean Ceedling
     #   working-directory: ./test/
-    #   run: ceedling clobber
+    #   run: |
+    #     echo "Current Working Directory: $(pwd)"
 
-    - name: Run Ceedling tests
-      working-directory: ./test/
-      run: ceedling
+    # # - name: Clobber Ceedling
+    # #   working-directory: ./test/
+    # #   run: ceedling clobber
+
+    # - name: Run Ceedling tests
+    #   working-directory: ./test/
+    #   run: ceedling
 
 
