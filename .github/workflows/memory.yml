@@ -1,7 +1,33 @@
-name: Memory Valgrind Test
+name: Produce valgrind memory reports
 on: [push, pull_request]
 
 jobs:
+
+  unit-test:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0.5'
+
+    - name: Install Ceedling
+      run: gem install ceedling
+
+
+    - name: Set LD_LIBRARY_PATH
+      run: |
+        echo "LD_LIBRARY_PATH=./reqs/lib/" >> $GITHUB_ENV
+
+    - name: Test
+      run: |
+        ceedling clean
+        ceedling clobber
+        ceedling verbosity[1] test:all
+
   valgrind:
     runs-on: ubuntu-latest
 
@@ -49,7 +75,7 @@ jobs:
 
         echo  
         ./test_valgrind/run_scripts.sh
-        
+
       env:
         TESTDIR: ./build_test/test/out/
         SHARED_OBJECT: ./reqs/lib/libvaccel-noop.so
