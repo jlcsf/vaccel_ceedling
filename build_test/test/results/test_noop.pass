@@ -1,0 +1,27 @@
+---
+:source:
+  :path: test/vaccel_core
+  :file: test_noop.c
+:successes:
+- :test: test_plugin_true
+  :line: 22
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_noop_null
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_noop_valid
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout:
+- "[noop] Calling no-op for session 1"
+:time: 0.0020596170002136205

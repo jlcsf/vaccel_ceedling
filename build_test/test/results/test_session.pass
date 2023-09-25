@@ -1,0 +1,34 @@
+---
+:source:
+  :path: test/vaccel_core
+  :file: test_session.c
+:successes:
+- :test: test_true_values
+  :line: 23
+  :message: ''
+  :unity_test_time: 0
+- :test: test_session_init_no_sess
+  :line: 29
+  :message: ''
+  :unity_test_time: 0
+- :test: test_session_init
+  :line: 29
+  :message: ''
+  :unity_test_time: 0
+- :test: test_sess_update
+  :line: 42
+  :message: ''
+  :unity_test_time: 0
+- :test: test_sessions_boostrap
+  :line: 50
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 5
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0019272149997959787

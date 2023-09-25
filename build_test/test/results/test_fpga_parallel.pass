@@ -1,0 +1,25 @@
+---
+:source:
+  :path: test/plugins_fpga
+  :file: test_fpga_parallel.c
+:successes:
+- :test: test_vaccel_mmult_null
+  :line: 24
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_mmult_valid
+  :line: 35
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 2
+  :failed: 0
+  :ignored: 0
+:stdout:
+- "[noop] Calling v_parallel for session 1"
+- "[noop] Dumping arguments for v_parallel:"
+- "[noop] len_a: 1"
+:time: 0.0018795149999277783

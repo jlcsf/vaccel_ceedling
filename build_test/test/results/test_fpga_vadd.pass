@@ -1,0 +1,26 @@
+---
+:source:
+  :path: test/plugins_fpga
+  :file: test_fpga_vadd.c
+:successes:
+- :test: test_vaccel_arraycopy_null
+  :line: 24
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_vadd_valid
+  :line: 35
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_vadd_invalid_arguments
+  :line: 70
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.002072316000067076

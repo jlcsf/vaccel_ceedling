@@ -1,0 +1,11 @@
+---
+src/ops/fpga.c:
+- TEST
+src/ops/noop.c:
+- TEST
+src/session.c:
+- TEST
+src/plugin.c:
+- TEST
+third-party/slog/src/slog.c:
+- TEST
