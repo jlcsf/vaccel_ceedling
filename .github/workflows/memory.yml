@@ -41,6 +41,10 @@ jobs:
         rm valgrind_output/ -rf
         ./run_scripts.sh
 
+    - name: List Files in Directory
+      run: |
+        find . -type f | xargs -I {} echo "File: {}"
+
     - name: Upload Valgrind Reports
       uses: actions/upload-artifact@v3
       with:
