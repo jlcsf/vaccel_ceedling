@@ -22,4 +22,4 @@
 - "[noop] Calling v_parallel for session 1"
 - "[noop] Dumping arguments for v_parallel:"
 - "[noop] len_a: 1"
-:time: 0.0018795149999277783
+:time: 0.0016381189998355694
