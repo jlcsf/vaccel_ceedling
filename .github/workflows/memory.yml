@@ -3,11 +3,14 @@ on: [push, pull_request]
 
 jobs:
 
-  unit-test:
-    runs-on: ubuntu-22.04
+  valgrind:
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -27,13 +30,6 @@ jobs:
         ceedling clean
         ceedling clobber
         ceedling verbosity[1] test:all
-
-  valgrind:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
 
     - name: Set up Valgrind
       run: |
