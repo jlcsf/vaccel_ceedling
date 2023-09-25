@@ -38,11 +38,10 @@ jobs:
     - name: Run Valgrind Tests
       run: |
         cd test_valgrind/
+        rm valgrind_output/ -rf
         ./run_scripts.sh
-        cd ../
 
     - name: Upload Valgrind Reports
       uses: actions/upload-artifact@v3
       with:
-        name: valgrind-reports
-        path: ./test_valgrind/valgrind_output
+        path: ./test_valgrind/valgrind_output/
