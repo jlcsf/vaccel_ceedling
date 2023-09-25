@@ -49,3 +49,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: ./test_valgrind/valgrind_output/
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
