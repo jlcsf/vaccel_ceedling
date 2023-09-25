@@ -28,7 +28,7 @@ jobs:
       run: |
         ceedling clean
         ceedling clobber
-        ceedling verbosity[1] test:all
+        ceedling verbosity[3] test:all -> test_output.txt
 
     - name: Set up Valgrind
       run: |
@@ -49,5 +49,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: ./test_valgrind/valgrind_output/
+        
+    
+    - name: Update README
+      run: |
+        echo "::set-output name=test_output::$(cat test_output.txt)"
+        echo "$test_output" > README.md
+        rm test_output.txt
 
     - uses: stefanzweifel/git-auto-commit-action@v4
