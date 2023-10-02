@@ -24,4 +24,4 @@
   :ignored: 0
 :stdout:
 - "[noop] Calling no-op for session 1"
-:time: 0.0008436850002908614
+:time: 0.00081235600009677

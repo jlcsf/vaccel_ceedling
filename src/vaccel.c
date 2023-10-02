@@ -72,7 +72,7 @@ close_dl:
 	return ret;
 }
 
-static int load_backend_plugins(char *plugins)
+int load_backend_plugins(char *plugins)
 {
 	char *plugin;
 
@@ -173,35 +173,35 @@ static void vaccel_init(void)
 		exit(ret);
 	}
 
-	ret = sessions_bootstrap();
-	if (ret) {
-		vaccel_error("Could not bootstrap sessions system");
-		exit(ret);
-	}
+	// ret = sessions_bootstrap();
+	// if (ret) {
+	// 	vaccel_error("Could not bootstrap sessions system");
+	// 	exit(ret);
+	// }
 
-	ret = resources_bootstrap();
-	if (ret) {
-		vaccel_error("Could not bootstrap resources system");
-		exit(ret);
-	}
+	// ret = resources_bootstrap();
+	// if (ret) {
+	// 	vaccel_error("Could not bootstrap resources system");
+	// 	exit(ret);
+	// }
 
-	/* initialize the backends system */
-	plugins_bootstrap();
+	// /* initialize the backends system */
+	// plugins_bootstrap();
 
-	/* find backend implementations and set them up */
-	char *plugins = getenv("VACCEL_BACKENDS");
-	if (!plugins)
-		return;
+	// /* find backend implementations and set them up */
+	// char *plugins = getenv("VACCEL_BACKENDS");
+	// if (!plugins)
+	// 	return;
 
-	load_backend_plugins(plugins);
+	// load_backend_plugins(plugins);
 }
 
 __attribute__((destructor))
 static void vaccel_fini(void)
 {
 	vaccel_debug("Shutting down vAccel");
-	plugins_shutdown();
-	resources_cleanup();
-	sessions_cleanup();
+	// plugins_shutdown();
+	// resources_cleanup();
+	// sessions_cleanup();
 	cleanup_vaccel_rundir();
 }
