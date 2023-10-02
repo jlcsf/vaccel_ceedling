@@ -76,8 +76,8 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_fpga_mmult.c");
-  run_test(test_vaccel_mmult_null, "test_vaccel_mmult_null", 24);
-  run_test(test_vaccel_mmult_valid, "test_vaccel_mmult_valid", 34);
+  run_test(test_vaccel_mmult_null, "test_vaccel_mmult_null", 26);
+  run_test(test_vaccel_mmult_valid, "test_vaccel_mmult_valid", 36);
 
   return UnityEnd();
 }

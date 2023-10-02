@@ -3,32 +3,55 @@
   :path: test/vaccel_core
   :file: test_session.c
 :successes:
-- :test: test_true_values
-  :line: 23
+- :test: test_vaccel_sess_register_null
+  :line: 54
   :message: ''
   :unity_test_time: 0
-- :test: test_session_init_no_sess
-  :line: 29
+- :test: test_vaccel_sess_init
+  :line: 60
   :message: ''
   :unity_test_time: 0
-- :test: test_session_init
-  :line: 29
+- :test: test_vaccel_sess_init_null
+  :line: 66
   :message: ''
   :unity_test_time: 0
-- :test: test_sess_update
-  :line: 42
+- :test: test_vaccel_sess_init_not_init
+  :line: 72
   :message: ''
   :unity_test_time: 0
-- :test: test_sessions_boostrap
-  :line: 50
+- :test: test_vaccel_sess_update
+  :line: 80
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_sess_update_null
+  :line: 86
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_sess_update_not_init
+  :line: 92
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_free_null
+  :line: 100
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_free_not_init
+  :line: 106
+  :message: ''
+  :unity_test_time: 0
+- :test: test_vaccel_free
+  :line: 106
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 10
+  :passed: 10
   :failed: 0
   :ignored: 0
-:stdout: []
-:time: 0.0017477199999120785
+:stdout:
+- Sessions subsystem initialized successfully.
+- session:1 New session
+- Sessions subsystem cleaned up successfully.
+:time: 0.0008388780006498564

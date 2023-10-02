@@ -23,5 +23,7 @@
   :failed: 0
   :ignored: 0
 :stdout:
-- "[noop] Calling no-op for session 1"
-:time: 0.0016119179999805056
+- Sessions subsystem initialized successfully.
+- session:1 New session[noop] Calling no-op for session 1
+- Sessions subsystem cleaned up successfully.
+:time: 0.0008085699992079753

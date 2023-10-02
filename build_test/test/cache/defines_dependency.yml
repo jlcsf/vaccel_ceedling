@@ -1,11 +1,21 @@
 ---
+build_test/test/mocks/mock_resources.c:
+- TEST
+src/id_pool.c:
+- TEST
+src/log.c:
+- TEST
+src/utils.c:
+- TEST
+src/plugin.c:
+- TEST
 src/ops/fpga.c:
 - TEST
 src/ops/noop.c:
 - TEST
 src/session.c:
 - TEST
-src/plugin.c:
+src/ops/genop.c:
 - TEST
 third-party/slog/src/slog.c:
 - TEST

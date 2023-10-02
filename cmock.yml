@@ -1,0 +1,8 @@
+:plugins:
+  :cexception: {}
+:mock_prefix: mock_
+:enforce_strict_ordering: TRUE
+:treat_as:
+  uint8: HEX8
+  uint16: HEX16
+  uint32: HEX32

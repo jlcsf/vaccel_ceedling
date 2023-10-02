@@ -1,10 +1,9 @@
+#include "src/include/ops/genop.h"
 #include "src/session.h"
 #include "src/include/ops/noop.h"
 #include "src/include/ops/fpga.h"
 #include "src/error.h"
-#include "/opt/hostedtoolcache/Ruby/3.0.5/x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
-
-
+#include "/home/jl/.rvm/gems/ruby-3.0.5/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
 static int fini(void)
@@ -65,7 +64,7 @@ void test_vaccel_mmult_null(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(33), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -99,7 +98,7 @@ void test_vaccel_mmult_valid(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -111,13 +110,13 @@ void test_vaccel_mmult_valid(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(52), UNITY_DISPLAY_STYLE_INT);
 
     do {if (((
 
    95
 
-   ) != (ret))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(51)));}} while(0);
+   ) != (ret))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(53)));}} while(0);
 
 
 
@@ -129,7 +128,7 @@ void test_vaccel_mmult_valid(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(55), UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(57), UNITY_ARRAY_TO_ARRAY);
 
 
 

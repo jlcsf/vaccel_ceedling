@@ -19,7 +19,9 @@
   :failed: 0
   :ignored: 0
 :stdout:
-- "[noop] Calling v_parallel for session 1"
+- Sessions subsystem initialized successfully.
+- session:1 New session[noop] Calling v_parallel for session 1
 - "[noop] Dumping arguments for v_parallel:"
 - "[noop] len_a: 1"
-:time: 0.0016381189998355694
+- Sessions subsystem cleaned up successfully.
+:time: 0.0008712490016478114

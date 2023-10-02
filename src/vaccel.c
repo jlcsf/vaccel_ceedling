@@ -156,52 +156,52 @@ const char *vaccel_rundir(void)
 	return rundir;
 }
 
-__attribute__((constructor))
-static void vaccel_init(void)
-{
-	int ret = VACCEL_EINVAL;
+// __attribute__((constructor))
+// static void vaccel_init(void)
+// {
+// 	int ret = VACCEL_EINVAL;
 
-	/* Initialize logger */
-	vaccel_log_init();
+// 	/* Initialize logger */
+// 	vaccel_log_init();
 
-	vaccel_debug("Initializing vAccel");
-	vaccel_info("vAccel %s", VACCELRT_VERSION);
+// 	vaccel_debug("Initializing vAccel");
+// 	vaccel_info("vAccel %s", VACCELRT_VERSION);
 
-	ret = create_vaccel_rundir();
-	if (ret) {
-		vaccel_error("Could not create rundir for vAccel");
-		exit(ret);
-	}
+// 	ret = create_vaccel_rundir();
+// 	if (ret) {
+// 		vaccel_error("Could not create rundir for vAccel");
+// 		exit(ret);
+// 	}
 
-	ret = sessions_bootstrap();
-	if (ret) {
-		vaccel_error("Could not bootstrap sessions system");
-		exit(ret);
-	}
+// 	ret = sessions_bootstrap();
+// 	if (ret) {
+// 		vaccel_error("Could not bootstrap sessions system");
+// 		exit(ret);
+// 	}
 
-	ret = resources_bootstrap();
-	if (ret) {
-		vaccel_error("Could not bootstrap resources system");
-		exit(ret);
-	}
+// 	ret = resources_bootstrap();
+// 	if (ret) {
+// 		vaccel_error("Could not bootstrap resources system");
+// 		exit(ret);
+// 	}
 
-	/* initialize the backends system */
-	plugins_bootstrap();
+// 	/* initialize the backends system */
+// 	plugins_bootstrap();
 
-	/* find backend implementations and set them up */
-	char *plugins = getenv("VACCEL_BACKENDS");
-	if (!plugins)
-		return;
+// 	/* find backend implementations and set them up */
+// 	char *plugins = getenv("VACCEL_BACKENDS");
+// 	if (!plugins)
+// 		return;
 
-	load_backend_plugins(plugins);
-}
+// 	load_backend_plugins(plugins);
+// }
 
-__attribute__((destructor))
-static void vaccel_fini(void)
-{
-	vaccel_debug("Shutting down vAccel");
-	plugins_shutdown();
-	resources_cleanup();
-	sessions_cleanup();
-	cleanup_vaccel_rundir();
-}
+// __attribute__((destructor))
+// static void vaccel_fini(void)
+// {
+// 	vaccel_debug("Shutting down vAccel");
+// 	plugins_shutdown();
+// 	resources_cleanup();
+// 	sessions_cleanup();
+// 	cleanup_vaccel_rundir();
+// }

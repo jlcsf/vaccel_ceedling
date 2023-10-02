@@ -4,11 +4,11 @@
   :file: test_fpga_mmult.c
 :successes:
 - :test: test_vaccel_mmult_null
-  :line: 24
+  :line: 26
   :message: ''
   :unity_test_time: 0
 - :test: test_vaccel_mmult_valid
-  :line: 34
+  :line: 36
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -18,5 +18,8 @@
   :passed: 2
   :failed: 0
   :ignored: 0
-:stdout: []
-:time: 0.0016598189999967872
+:stdout:
+- Sessions subsystem initialized successfully.
+- session:1 New session
+- Sessions subsystem cleaned up successfully.
+:time: 0.0007980289992701728

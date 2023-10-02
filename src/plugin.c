@@ -238,7 +238,7 @@ int get_available_plugins(enum vaccel_op_type op_type) {
 
         for_each_container_safe(opiter, tmp_op, &plugin_state.ops[op_type],
 			struct vaccel_op, func_entry) {
-		vaccel_debug("Found implementation of %s in %s plugin type: %s",
+		printf("Found implementation of %s in %s plugin type: %s",
 				vaccel_op_type_str(opiter->type),
 				opiter->owner->info->name,
 				vaccel_plugin_type_str(opiter->owner->info->type));

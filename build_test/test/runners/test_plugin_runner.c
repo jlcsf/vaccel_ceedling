@@ -15,6 +15,10 @@ extern void test_plugin_null_name(void);
 extern void test_plugin_not_boostrapped(void);
 extern void test_plugin_init_values_all(void);
 extern void test_plugin_exists(void);
+extern void test_register_plugin(void);
+extern void test_unregister_plugin(void);
+extern void test_register_plugin_function_invalid_inputs(void);
+extern void test_register_plugin_function_valid_input(void);
 
 
 /*=======Mock Management=====*/
@@ -80,10 +84,14 @@ int main(void)
 {
   UnityBegin("test_plugin.c");
   run_test(test_plugin_null, "test_plugin_null", 44);
-  run_test(test_plugin_null_name, "test_plugin_null_name", 49);
-  run_test(test_plugin_not_boostrapped, "test_plugin_not_boostrapped", 61);
-  run_test(test_plugin_init_values_all, "test_plugin_init_values_all", 68);
-  run_test(test_plugin_exists, "test_plugin_exists", 76);
+  run_test(test_plugin_null_name, "test_plugin_null_name", 50);
+  run_test(test_plugin_not_boostrapped, "test_plugin_not_boostrapped", 62);
+  run_test(test_plugin_init_values_all, "test_plugin_init_values_all", 69);
+  run_test(test_plugin_exists, "test_plugin_exists", 77);
+  run_test(test_register_plugin, "test_register_plugin", 83);
+  run_test(test_unregister_plugin, "test_unregister_plugin", 88);
+  run_test(test_register_plugin_function_invalid_inputs, "test_register_plugin_function_invalid_inputs", 101);
+  run_test(test_register_plugin_function_valid_input, "test_register_plugin_function_valid_input", 109);
 
   return UnityEnd();
 }

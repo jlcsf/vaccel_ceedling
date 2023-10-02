@@ -80,8 +80,8 @@ int vaccel_fpga_mmult_unpack(struct vaccel_session *sess, struct vaccel_arg *rea
 	}
 	float *A_array = (float*)read[0].buf;
 	float *B_array = (float*)read[1].buf;
-    	size_t lenA = (size_t)read[0].buf;
-    	float *C_array = (float*)write[0].buf;
+    size_t lenA = (size_t)read[0].buf;
+    float *C_array = (float*)write[0].buf;
 
 	return vaccel_fpga_mmult(sess, A_array, B_array, C_array, lenA);
 }

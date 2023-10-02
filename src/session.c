@@ -49,15 +49,20 @@ static void put_sess_id(uint32_t id)
 }
 
 int sessions_bootstrap(void)
-{
+{	
 	int ret = id_pool_new(&sessions.ids, MAX_VACCEL_SESSIONS);
 	if (ret)
 		return ret;
 
+
 	for (size_t i = 0; i < MAX_VACCEL_SESSIONS; ++i)
 		sessions.running_sessions[i] = NULL;
 
+
+
 	sessions.initialized = true;
+
+	printf("Sessions subsystem initialized successfully.\n");
 
 	return VACCEL_OK;
 }
@@ -66,6 +71,9 @@ int sessions_cleanup(void)
 {
 	id_pool_destroy(&sessions.ids);
 	sessions.initialized = false;
+
+
+	printf("Sessions subsystem cleaned up successfully.\n");
 
 	return VACCEL_OK;
 }
@@ -80,6 +88,7 @@ int vaccel_sess_register(struct vaccel_session *sess,
 	struct registered_resource *container = malloc(sizeof(*container));
 	if (!container)
 		return VACCEL_ENOMEM;
+	
 
 	struct vaccel_plugin *plugin = get_virtio_plugin();
 	if (plugin) {
@@ -244,7 +253,7 @@ int vaccel_sess_init(struct vaccel_session *sess, uint32_t flags)
 
 	sess->hint = flags;
 
-	vaccel_debug("session:%u New session", sess->session_id);
+	printf("session:%u New session", sess->session_id);
 
 	sessions.running_sessions[sess->session_id - 1] = sess;
 

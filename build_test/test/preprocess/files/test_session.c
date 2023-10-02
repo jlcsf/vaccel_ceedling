@@ -1,134 +1,287 @@
+#include "src/id_pool.h"
+#include "src/utils.h"
+#include "src/log.h"
+#include "src/plugin.h"
 #include "src/session.h"
-#include "src/error.h"
-#include "/opt/hostedtoolcache/Ruby/3.0.5/x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
+#include "/home/jl/.rvm/gems/ruby-3.0.5/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
 
 
-static int fini(void)
+struct vaccel_session test_sess = {0};
+
+
+
+extern struct {
+
+
+
+ 
+
+_Bool 
+
+     initialized;
+
+
+
+
+
+ id_pool_t ids;
+
+
+
+
+
+ struct vaccel_session *running_sessions[1024];
+
+} sessions;
+
+
+
+
+
+static void mock_sessions_bootstrap(void)
 
 {
 
-    return 0;
+    sessions.initialized = 
+
+                          1
+
+                              ;
 
 }
 
 
 
-static int init(void)
+static void mock_sessions_cleanup(void)
 
 {
 
-    return 0;
+    sessions.initialized = 
+
+                          0
+
+                               ;
 
 }
 
-
-
-
-
-void setUp(void) {}
-
-
-
-
-
-void tearDown(void) {}
-
-
-
-
-
-void test_true_values(void)
+void test_vaccel_sess_register_null(void)
 
 {
 
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((1)), (
+    int ret = vaccel_sess_register(
 
-   ((void *)0)
+                                  ((void *)0)
 
-   ), (UNITY_UINT)(25), UNITY_DISPLAY_STYLE_INT);
+                                      , 
 
-}
+                                        ((void *)0)
 
+                                            );
 
-
-
-
-void test_session_init_no_sess(void)
-
-{
-
-    UnityAssertEqualNumber((UNITY_INT)((vaccel_sess_init(
-
-   ((void *)0)
-
-   ,0))), (UNITY_INT)((
+    UnityAssertEqualNumber((UNITY_INT)((
 
    22
 
-   )), (
+   )), (UNITY_INT)((ret)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-
-
-void test_session_init(void)
+void test_vaccel_sess_init(void)
 
 {
 
-    static struct vaccel_session session;
-
-    UnityAssertEqualNumber((UNITY_INT)((vaccel_sess_init(&session,0))), (UNITY_INT)((0)), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_INT);
-
-}
-
-
-
-
-
-void test_sess_update(void)
-
-{
-
-    static struct vaccel_session session;
-
-    vaccel_sess_update(&session, 1);
-
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((session.hint)), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
-
-}
-
-
-
-
-
-void test_sessions_boostrap(void)
-
-{
-
-    static struct vaccel_session session;
-
-    int ret = sessions_bootstrap();
+    int ret = vaccel_sess_init(&test_sess, 0);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((ret)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(63), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_vaccel_sess_init_null(void)
+
+{
+
+    int ret = vaccel_sess_init(
+
+                              ((void *)0)
+
+                                  , 0);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   22
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_vaccel_sess_init_not_init(void)
+
+{
+
+    mock_sessions_cleanup();
+
+    int ret = vaccel_sess_init(&test_sess, 0);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   104
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_INT);
+
+    mock_sessions_bootstrap();
+
+}
+
+
+
+void test_vaccel_sess_update(void)
+
+{
+
+    int ret = vaccel_sess_update(&test_sess, 0);
+
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(83), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_vaccel_sess_update_null(void)
+
+{
+
+    int ret = vaccel_sess_update(
+
+                                ((void *)0)
+
+                                    , 0);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   22
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(89), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_vaccel_sess_update_not_init(void)
+
+{
+
+    mock_sessions_cleanup();
+
+    int ret = vaccel_sess_update(&test_sess, 0);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   104
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(96), UNITY_DISPLAY_STYLE_INT);
+
+    mock_sessions_bootstrap();
+
+}
+
+
+
+void test_vaccel_free_null(void)
+
+{
+
+    int ret = vaccel_sess_free(
+
+                              ((void *)0)
+
+                                  );
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   22
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(103), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_vaccel_free_not_init(void)
+
+{
+
+    mock_sessions_cleanup();
+
+    int ret = vaccel_sess_free(&test_sess);
+
+    UnityAssertEqualNumber((UNITY_INT)((
+
+   104
+
+   )), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(110), UNITY_DISPLAY_STYLE_INT);
+
+    mock_sessions_bootstrap();
+
+}
+
+
+
+
+
+void test_vaccel_free(void)
+
+{
+
+    int ret = vaccel_sess_free(&test_sess);
+
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((ret)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(118), UNITY_DISPLAY_STYLE_INT);
 
 }

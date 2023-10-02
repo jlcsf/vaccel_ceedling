@@ -10,11 +10,16 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_true_values(void);
-extern void test_session_init_no_sess(void);
-extern void test_session_init(void);
-extern void test_sess_update(void);
-extern void test_sessions_boostrap(void);
+extern void test_vaccel_sess_register_null(void);
+extern void test_vaccel_sess_init(void);
+extern void test_vaccel_sess_init_null(void);
+extern void test_vaccel_sess_init_not_init(void);
+extern void test_vaccel_sess_update(void);
+extern void test_vaccel_sess_update_null(void);
+extern void test_vaccel_sess_update_not_init(void);
+extern void test_vaccel_free_null(void);
+extern void test_vaccel_free_not_init(void);
+extern void test_vaccel_free(void);
 
 
 /*=======Mock Management=====*/
@@ -30,6 +35,12 @@ static void CMock_Verify(void)
 static void CMock_Destroy(void)
 {
 }
+
+/*=======Setup (stub)=====*/
+void setUp(void) {}
+
+/*=======Teardown (stub)=====*/
+void tearDown(void) {}
 
 /*=======Test Reset Options=====*/
 void resetTest(void);
@@ -79,11 +90,16 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_session.c");
-  run_test(test_true_values, "test_true_values", 23);
-  run_test(test_session_init_no_sess, "test_session_init_no_sess", 29);
-  run_test(test_session_init, "test_session_init", 29);
-  run_test(test_sess_update, "test_sess_update", 42);
-  run_test(test_sessions_boostrap, "test_sessions_boostrap", 50);
+  run_test(test_vaccel_sess_register_null, "test_vaccel_sess_register_null", 54);
+  run_test(test_vaccel_sess_init, "test_vaccel_sess_init", 60);
+  run_test(test_vaccel_sess_init_null, "test_vaccel_sess_init_null", 66);
+  run_test(test_vaccel_sess_init_not_init, "test_vaccel_sess_init_not_init", 72);
+  run_test(test_vaccel_sess_update, "test_vaccel_sess_update", 80);
+  run_test(test_vaccel_sess_update_null, "test_vaccel_sess_update_null", 86);
+  run_test(test_vaccel_sess_update_not_init, "test_vaccel_sess_update_not_init", 92);
+  run_test(test_vaccel_free_null, "test_vaccel_free_null", 100);
+  run_test(test_vaccel_free_not_init, "test_vaccel_free_not_init", 106);
+  run_test(test_vaccel_free, "test_vaccel_free", 106);
 
   return UnityEnd();
 }

@@ -41,6 +41,7 @@ static list_t live_resources[VACCEL_RES_MAX];
 
 int resources_bootstrap(void)
 {
+	
 	int ret = id_pool_new(&id_pool, MAX_RESOURCES);
 	if (ret)
 		return ret;
@@ -50,6 +51,8 @@ int resources_bootstrap(void)
 
 	initialized = true;
 
+	printf("Activating resources");
+	
 	return VACCEL_OK;
 }
 
@@ -57,25 +60,36 @@ int resources_cleanup(void)
 {
 	if (!initialized)
 		return VACCEL_OK;
-
+	
 	for (int i = 0; i < VACCEL_RES_MAX; ++i) {
 		struct vaccel_resource *res, *tmp;
 		for_each_vaccel_resource_safe(res, tmp, &live_resources[i])
 			resource_destroy(res);
 	}
 
+	printf("Closing resources");
+
 	return id_pool_destroy(&id_pool);
+	
 }
 
 int resource_new(struct vaccel_resource *res, vaccel_resource_t type,
 		void *data, int (*cleanup_resource)(void *))
 {
+
+	printf("%d\n", (initialized));
+
 	if (!initialized)
 		return VACCEL_EPERM;
-
-	if (!res || type >= VACCEL_RES_MAX)
+	
+	if (!res)
 		return VACCEL_EINVAL;
 
+	if (!res || type >= VACCEL_RES_MAX)
+	{
+		print("testing1");
+		return VACCEL_EINVAL;
+	}
 	/* If we 're working on top of VirtIO, the host side will provide
 	 * us with an id */
 	struct vaccel_plugin *virtio = get_virtio_plugin(); 

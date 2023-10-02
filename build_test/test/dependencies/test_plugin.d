@@ -1,6 +1,6 @@
 build_test/test/out/c/test_plugin.o: test/vaccel_core/test_plugin.c \
- /opt/hostedtoolcache/Ruby/3.0.5/x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h \
- /opt/hostedtoolcache/Ruby/3.0.5/x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity_internals.h \
+ /home/jl/.rvm/gems/ruby-3.0.5/gems/ceedling-0.31.1/vendor/unity/src/unity.h \
+ /home/jl/.rvm/gems/ruby-3.0.5/gems/ceedling-0.31.1/vendor/unity/src/unity_internals.h \
  src/plugin.h src/include/plugin.h src/include/session.h \
  src/include/resources.h src/include/error.h src/include/vaccel_id.h \
  src/include/list.h src/ops/vaccel_ops.h src/include/ops/vaccel_ops.h \

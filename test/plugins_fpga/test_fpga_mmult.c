@@ -3,7 +3,9 @@
 #include "fpga.h"
 #include "noop.h"
 #include "session.h"
-
+#include "genop.h"
+#include "include/ops/fpga.h"
+#include "ops/fpga.h"
 
 static int fini(void) 
 {
@@ -55,6 +57,3 @@ void test_vaccel_mmult_valid(void)
     TEST_ASSERT_EQUAL_FLOAT_ARRAY(expected_c, c, len_a);
 
 }
-
-
-

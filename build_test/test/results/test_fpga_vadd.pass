@@ -22,5 +22,8 @@
   :passed: 3
   :failed: 0
   :ignored: 0
-:stdout: []
-:time: 0.0016177190000234987
+:stdout:
+- Sessions subsystem initialized successfully.
+- session:1 New session
+- Sessions subsystem cleaned up successfully.
+:time: 0.000758624002628494

@@ -19,15 +19,19 @@
 
 int id_pool_new(id_pool_t *pool, int nr_ids)
 {
+
 	if (!nr_ids)
 		return VACCEL_EINVAL;
+	
 
 	pool->ids = calloc(nr_ids, sizeof(vaccel_id_t));
 	if (!pool->ids)
 		return VACCEL_ENOMEM;
+	
 
 	pool->max = nr_ids;
 	atomic_init(&pool->next, 0);
+
 
 	return VACCEL_OK;
 
