@@ -19,6 +19,7 @@ Test 'test_fpga_mmult.c'
 Generating runner for test_fpga_mmult.c...
 Compiling test_fpga_mmult_runner.c...
 Compiling test_fpga_mmult.c...
+Compiling genop.c...
 Linking test_fpga_mmult.out...
 Running test_fpga_mmult.out...
 
@@ -61,29 +62,68 @@ Linking test_plugin.out...
 Running test_plugin.out...
 
 
+Test 'test_resource.c'
+----------------------
+Generating include list for resources.h...
+Creating mock for resources...
+Generating runner for test_resource.c...
+Compiling test_resource_runner.c...
+Compiling test_resource.c...
+Compiling mock_resources.c...
+Linking test_resource.out...
+Running test_resource.out...
+
+
 Test 'test_session.c'
 ---------------------
 Generating runner for test_session.c...
 Compiling test_session_runner.c...
 Compiling test_session.c...
+Compiling log.c...
+Compiling utils.c...
+Compiling id_pool.c...
 Linking test_session.out...
 Running test_session.out...
 
 -----------
 TEST OUTPUT
 -----------
+[test_fpga_copy.c]
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session"
+  - "Sessions subsystem cleaned up successfully."
+
+[test_fpga_mmult.c]
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session"
+  - "Sessions subsystem cleaned up successfully."
+
 [test_fpga_parallel.c]
-  - "[noop] Calling v_parallel for session 1"
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session[noop] Calling v_parallel for session 1"
   - "[noop] Dumping arguments for v_parallel:"
   - "[noop] len_a: 1"
+  - "Sessions subsystem cleaned up successfully."
+
+[test_fpga_vadd.c]
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session"
+  - "Sessions subsystem cleaned up successfully."
 
 [test_noop.c]
-  - "[noop] Calling no-op for session 1"
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session[noop] Calling no-op for session 1"
+  - "Sessions subsystem cleaned up successfully."
+
+[test_session.c]
+  - "Sessions subsystem initialized successfully."
+  - "session:1 New session"
+  - "Sessions subsystem cleaned up successfully."
 
 --------------------
 OVERALL TEST SUMMARY
 --------------------
-TESTED:  22
-PASSED:  22
+TESTED:  35
+PASSED:  35
 FAILED:   0
 IGNORED:  0
