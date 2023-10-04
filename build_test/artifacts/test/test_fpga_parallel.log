@@ -1,4 +1,0 @@
-Sessions subsystem initialized successfully.
-session:1 New session[noop] Calling v_parallel for session 1
-[noop] Dumping arguments for v_parallel:
-[noop] len_a: 1

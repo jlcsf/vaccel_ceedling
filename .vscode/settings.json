@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "log.h": "c",
+        "error.h": "c",
+        "id_pool.h": "c",
+        "plugin.h": "c",
+        "stdio.h": "c",
+        "mock_session.h": "c",
+        "mock_resources.h": "c",
+        "misc.h": "c",
+        "mock_log.h": "c",
+        "mock_error.h": "c",
+        "utils.h": "c",
+        "stdbool.h": "c",
+        "stdint.h": "c",
+        "mock_plugin.h": "c"
+    }
+}
